@@ -3,7 +3,7 @@ let button=document.querySelector('.button')
 let wraper=document.querySelector('.wrapr')
 let del=document.querySelector('.del')
 
-function create(value) {
+function create(value,id) {
     return `
     <div class="item">
                 <div class="left">
@@ -14,7 +14,7 @@ function create(value) {
                         <i class="fa-regular fa-pen-to-square"></i>
                         <span>edit</span>
                     </button>
-                    <button>
+                    <button data-id=${id} class="delete-item">
                         <i class="fa-solid fa-trash-can"></i>
                         <span class="del">dal</span>
                     </button>
@@ -35,6 +35,43 @@ button&&button.addEventListener('click',function(event) {
     let item=create(todo)
     wraper.innerHTML+=item
 })
+function saveitem(value) {
+    const todo={
+        name:value,
+        status:'bajarilmagan',
+        id:Date.now()
+    }
+    let data=[]
+    if (localStorage.getItem('todos')) {
+        data=JSON.parse(localStorage.getItem('todos'))
+    }
+    data.push(todo)
+    localStorage.setItem('todos',JSON.stringify(data))
+
+    let item=createitem(input.value,todo.id)
+    wraper.innerHTML+=item
+}
 del.addEventListener('click',function() {
     let ite=document.querySelector('.item').style.display = "none";
+})
+document.addEventListener('DOMContentLoaded',function() {
+    let data=[]
+    if (localStorage.getItem(todos)) {
+        data=JSON.parse(localStorage.getItem('todos'))
+    }
+    if(data.length>0){
+        data.forEach(function(value) {
+            let item=create(value.name,value.id)
+            wraper.innerHTML+=item
+        })
+    }
+    let deletebuton=document.querySelectorAll('.delete-item')
+    deletebuton.length>0&&deletebuton.addEventListener('click',function(element) {
+      element.addEventListener('klick',function(event) {
+        event.preventDefault()
+        if (isdelit) {
+            console.log();
+        }
+      })  
+    })
 })

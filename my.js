@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
   let deletebuton = document.querySelectorAll(".delete-item");
   deletebuton.length > 0 && deletebuton.forEach(function(element){
   element.addEventListener("click", function (element) {
-      element.addEventListener("klick", function (event) {
+element.addEventListener("click", function (event) {
         event.preventDefault();
         let id = this.getAttribute("data-id");
 
@@ -84,3 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 })
 })
+
+
+
+

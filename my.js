@@ -67,23 +67,22 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   let deletebuton = document.querySelectorAll(".delete-item");
   deletebuton.length > 0 && deletebuton.forEach(function(element){
-  element.addEventListener("click", function (element) {
-element.addEventListener("click", function (event) {
+  element.addEventListener("click", function (event) {
         event.preventDefault();
         let id = this.getAttribute("data-id");
-
+    let isdelit=confirm('ochirmoqchmisiz')
         if (isdelit && id) {
-          let copied = JSON.parse(JSON.stringify(users));
+          let copied = JSON.parse(JSON.stringify('users'));
           copied = copied.filter(function (el) {
             return el.id != id;
           });
-          localStorage.setItem("todos", JSON.stringify(copied));
+          localStorage.setItem("users", JSON.stringify(users));
           window.location.reload();
         }
       });
     });
 })
-})
+
 
 
 

@@ -1,6 +1,6 @@
-let input = document.querySelector(".input");
-let button = document.querySelector(".button");
-let wraper = document.querySelector(".wrapr");
+const input = document.querySelector(".input");
+const button = document.querySelector(".button");
+const wraper = document.querySelector(".wrapr");
 
 function create(value, id) {
   return `
@@ -24,15 +24,15 @@ function create(value, id) {
 button &&
   button.addEventListener("click", function (event) {
     event.preventDefault();
-    let todo = input.value;
+    const todo = input.value;
     input.value = "";
-    if (todo.length < 6) {
+    if (todo.length < 5) {
       alert("eng kamida 7ta soz yozing");
       input.focus();
       input.style.outlineColor = "red";
       return;
     }
-    let item = create(todo);
+    let item = createItem(todo);
     wraper.innerHTML += item;
   });
 function saveitem(value) {
@@ -41,27 +41,27 @@ function saveitem(value) {
     status: "bajarilmagan",
     id: Date.now(),
   };
-  let data = [];
+  const data = [];
   if (localStorage.getItem("todos")) {
     data = JSON.parse(localStorage.getItem("todos"));
   }
   data.push(todo);
   localStorage.setItem("todos", JSON.stringify(data));
 
-  let item = createitem(input.value, todo.id);
+  const item = createitem(input.value, todo.id);
   wraper.innerHTML += item;
 }
 // del.addEventListener('click',function() {
 //     let ite =document.querySelector('.item').style.display = "none";
 // })
 document.addEventListener("DOMContentLoaded", function () {
-  let data = [];
+  const data = [];
   if (localStorage.getItem("todos")) {
     data = JSON.parse(localStorage.getItem("todos"));
   }
   if (data.length > 0) {
     data.forEach(function (value) {
-      let item = create(value.name, value.id);
+      const item = create(value.name, value.id);
       wraper.innerHTML += item;
     });
   }
@@ -69,10 +69,10 @@ document.addEventListener("DOMContentLoaded", function () {
   deletebuton.length > 0 && deletebuton.forEach(function(element){
   element.addEventListener("click", function (event) {
         event.preventDefault();
-        let id = this.getAttribute("data-id");
-    let isdelit=confirm('ochirmoqchmisiz')
+        const id = this.getAttribute("data-id");
+    const isdelit=confirm('ochirmoqchmisiz')
         if (isdelit && id) {
-          let copied = JSON.parse(JSON.stringify('users'));
+          const copied = JSON.parse(JSON.stringify('users'));
           copied = copied.filter(function (el) {
             return el.id != id;
           });
@@ -82,8 +82,4 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 })
-
-
-
-
 

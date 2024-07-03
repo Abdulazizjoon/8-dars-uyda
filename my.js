@@ -1,6 +1,7 @@
 let input=document.querySelector('.input')
 let button=document.querySelector('.button')
 let wraper=document.querySelector('.wrapr')
+let del=document.querySelector('.del')
 
 function create(value) {
     return `
@@ -15,7 +16,7 @@ function create(value) {
                     </button>
                     <button>
                         <i class="fa-solid fa-trash-can"></i>
-                        <span>dal</span>
+                        <span class="del">dal</span>
                     </button>
                 </div>
     </div>
@@ -33,4 +34,7 @@ button&&button.addEventListener('click',function(event) {
     }
     let item=create(todo)
     wraper.innerHTML+=item
+})
+del.addEventListener('click',function() {
+    let ite=document.querySelector('.item').style.display = "none";
 })

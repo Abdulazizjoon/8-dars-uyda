@@ -70,7 +70,13 @@ document.addEventListener('DOMContentLoaded',function() {
       element.addEventListener('klick',function(event) {
         event.preventDefault()
         if (isdelit) {
-            console.log();
+            let deleteid=this.getAttribute('data-id')
+            let copied=JSON.parse(JSON.stringify(data))
+            copied=copied.filter(function(del) {
+                return del.id !=deleteid
+                localStorage.setItem('todos',JSON.parse(copied))
+                window.location.reload()
+            })
         }
       })  
     })

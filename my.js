@@ -1,7 +1,6 @@
 let input = document.querySelector(".input");
 let button = document.querySelector(".button");
 let wraper = document.querySelector(".wrapr");
-let del = document.querySelector(".del");
 
 function create(value, id) {
   return `

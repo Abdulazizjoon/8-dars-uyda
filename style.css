@@ -1,0 +1,38 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.continer{
+    width: 500px;
+    height: 500px;
+    background-color: rgb(191, 200, 197);
+    margin-top:50px;
+    margin-left: 30%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+h1{
+    margin-left: 150px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+input{
+    margin-left:20px;
+    width:400px;
+    height: 30px;
+    border: 0px;
+    border-radius:5px;
+}
+button{
+    height: 30px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 0px solid #0101;
+}
+.item{
+    gap: 300px;
+    display: flex;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+}

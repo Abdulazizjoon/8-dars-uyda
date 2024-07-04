@@ -2,7 +2,7 @@ const input = document.querySelector(".input");
 const button = document.querySelector(".button");
 const wraper = document.querySelector(".wrapr");
 
-function create(value, id) {
+function create( value, id) {
   return `
     <div class="item">
                 <div class="left">
